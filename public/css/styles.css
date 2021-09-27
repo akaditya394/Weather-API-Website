@@ -1,0 +1,26 @@
+.weather{
+  height: auto;
+  width:400px;
+  border-radius: 10px;
+  margin-left: 400px;
+  margin-top: 150px;
+  background-color: #84c0c6;
+  text-align: center;
+  padding: 25px;
+}
+
+.report{
+  font-family: "Montserrat", sans-serif;
+}
+
+body{
+  background-color: #46b1c9;
+}
+
+.input-city{
+  background-color: #9fb7b9;
+  border-radius: 15px;
+  margin:15px;
+  padding: 5px;
+  border: none;
+}
