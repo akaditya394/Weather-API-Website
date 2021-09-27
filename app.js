@@ -2,9 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
 
+require('dotenv').config();
 
 
-ownKey = "197e43febdb93b54776a68e37ca651ed";
 
 
 
@@ -27,17 +27,15 @@ app.get("/", function(req, res) {
 });
 app.post("/report", function(req, res) {
   const city = req.body.cityName;
-  const url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=197e43febdb93b54776a68e37ca651ed";
+  const url = "https://api.openweathermap.org/data/2.5/weather?q="+city+process.env.API_KEY;
   https.get(url, function(response) {
-    // console.log(response);
 
     response.on("data", function(data) {
       const weatherData = JSON.parse(data);
-      // console.log(weatherData);
       const temp = weatherData.main.temp;
       const weatherDescription = weatherData.weather[0].description;
       console.log(temp, weatherDescription);
-      res.write("<h1>the temperature is "+ temp+" with "+weatherDescription+"<h1>");
+      res.write("<h1>The temperature is "+ temp+" ° Celcius with "+weatherDescription+".<h1>");
 
 
     })
